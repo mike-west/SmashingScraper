@@ -1,10 +1,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const logger = require("morgan");
+const mongoose = require("mongoose");
 
 // Sets up the Express App
 // =============================================================
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+const db = require("./models");             
 
 //handlebars
 const exphbs = require("express-handlebars");
@@ -23,8 +27,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
+app.use(logger("dev"));
+
 // Static directory
 app.use(express.static("public"));
+
+mongoose.connect("mongodb://localhost/SmashingScraper");
+
+db.User.create({user: "Bill Gates", password: "msoft"})
+    .then(function(dbUser) {
+        console.log(dbUser);
+    }).catch(function(err) {
+        console.log(err.message);
+    });
 
 // routes
 require("./routes/server-routes")(app);
