@@ -1,0 +1,23 @@
+{
+  "name": "smashingscraper",
+  "version": "1.0.0",
+  "description": "Scrapes Smashing Magazine",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mike-west/SmashingScraper.git"
+  },
+  "author": "Mike West",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mike-west/SmashingScraper/issues"
+  },
+  "homepage": "https://github.com/mike-west/SmashingScraper#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.87.0"
+  }
+}
