@@ -10,18 +10,6 @@ const PORT = process.env.PORT || 8080;
 
 const db = require("./models");             
 
-//handlebars
-const exphbs = require("express-handlebars");
-
-app.engine('.hbs', exphbs({ extname: '.hbs' }));
-app.set('views', __dirname + '/views');
-app.set('view engine', '.hbs');
-
-// Requiring our models for syncing
-// const db = require("./models");
-
-// Sets up the Express app to handle data parsing
-
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
