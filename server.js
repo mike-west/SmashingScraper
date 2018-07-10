@@ -34,12 +34,21 @@ app.use(express.static("public"));
 
 mongoose.connect("mongodb://localhost/SmashingScraper");
 
-db.User.create({user: "Bill Gates", password: "msoft"})
+db.User.create({user: "billgates", password: "msoft"})
     .then(function(dbUser) {
         console.log(dbUser);
     }).catch(function(err) {
         console.log(err.message);
     });
+
+db.Article.create({
+    title: "Better Research, Better Design, Better Results",
+    link: "http://www.smashingmagazine.com/2018/07/better-research-design-results/"
+}).then(function(dbArticle) {
+    console.log(dbArticle);
+}).catch(function(err) {
+    console.log(err.message);
+})
 
 // routes
 require("./routes/server-routes")(app);
